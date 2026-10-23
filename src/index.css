@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --dynamic-type-scale: 1;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Support for Thai font fallback */
+  [lang="th"], .font-thai {
+    font-family: 'Prompt', 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  /* Custom scrollbars for clean IDE / command center feel */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.6);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(100, 116, 139, 0.4);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.7);
+  }
+}
+
+/* Dynamic type scale engine for elderly accessibility */
+.dynamic-text-scalable {
+  font-size: calc(1rem * var(--dynamic-type-scale, 1));
+  line-height: 1.5;
+}
+
+/* Touch target inspection mode */
+.inspect-touch-targets [data-interactive="true"],
+.inspect-touch-targets button,
+.inspect-touch-targets a,
+.inspect-touch-targets input,
+.inspect-touch-targets select {
+  outline: 2px dashed rgba(239, 68, 68, 0.85) !important;
+  outline-offset: 2px !important;
+  position: relative;
+}
+
+.inspect-touch-targets [data-interactive="true"]::after,
+.inspect-touch-targets button::after {
+  content: attr(data-dimensions);
+  position: absolute;
+  top: -14px;
+  right: 0;
+  background: rgba(239, 68, 68, 0.95);
+  color: white;
+  font-size: 9px;
+  font-family: monospace;
+  padding: 1px 3px;
+  border-radius: 3px;
+  pointer-events: none;
+  z-index: 50;
+}
+
+/* WCAG AAA High-Contrast Filter Mode */
+.wcag-high-contrast {
+  filter: contrast(1.35) saturate(1.1);
+}
+
+.wcag-high-contrast-dark {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Safe area insets simulation */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top, 47px);
+}
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 34px);
+}

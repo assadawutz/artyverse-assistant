@@ -1,0 +1,12 @@
+{
+  "name": "ARTYVERSE ASSISTANT - Mobile Architecture & Senior Accessibility Studio",
+  "description": "Master Orchestrator & Co-Pilot for Mobile-First Full-Stack Engineers, WCAG 2.1 AAA Senior Accessibility, Realtime Device Canvas, and Multimodal GenAI.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera",
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
